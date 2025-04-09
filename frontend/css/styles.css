@@ -1,0 +1,230 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --accent-color: #e74c3c;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --grey-color: #6c757d;
+  --light-grey-color: #e9ecef;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--dark-color);
+  background-color: #f5f7fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+}
+
+header h1 {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+section {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: var(--card-shadow);
+}
+
+h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-weight: 600;
+  border-bottom: 2px solid var(--light-grey-color);
+  padding-bottom: 10px;
+}
+
+/* Current Weather Section */
+.weather-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.weather-card {
+  background-color: var(--light-color);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: transform var(--transition-speed);
+  box-shadow: var(--card-shadow);
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+}
+
+.weather-card i {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.weather-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--grey-color);
+}
+
+.weather-card p {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.last-updated {
+  text-align: right;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: var(--grey-color);
+}
+
+/* Chart Section */
+.chart-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chart-type-selector, .time-range-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+select {
+  padding: 8px 15px;
+  border-radius: 5px;
+  border: 1px solid var(--light-grey-color);
+  background-color: white;
+  cursor: pointer;
+}
+
+.chart-container {
+  height: 400px;
+  position: relative;
+}
+
+/* Data Export Section */
+.export-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--grey-color);
+}
+
+input[type="datetime-local"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--light-grey-color);
+}
+
+.form-actions {
+  grid-column: span 2;
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color var(--transition-speed);
+}
+
+.btn i {
+  font-size: 1.1rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+}
+
+.btn-success {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #27ae60;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--grey-color);
+  font-size: 0.9rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .export-form {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-actions {
+    grid-column: 1;
+    flex-direction: column;
+  }
+  
+  .chart-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .weather-card-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+} 
